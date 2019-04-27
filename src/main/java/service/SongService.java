@@ -22,13 +22,15 @@ public class SongService {
     private Map<String, List<Song>> artistVsSongs = new HashMap<>();
 
 
-    public void addSong(String songname, List<String> artists) {
-        if (artists.isEmpty()) {
+
+    public void addSong(Song song) {
+        if (song == null || song.getArtistIds().isEmpty()) {
             return;
         }
         String id = String.valueOf(Math.random());
-        Song song = new Song(id, songname, artists);
+        song.setId(id);
         songTable.put(id, song);
+        List<String> artists = song.getArtistIds();
         for (String artist : artists) {
             List<Song> songs = artistVsSongs.get(artist);
             if (songs == null) {

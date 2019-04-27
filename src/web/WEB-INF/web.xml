@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>WynkServelet</servlet-name>
-        <servlet-class>wynk.servelet.WynkServelet</servlet-class>
+        <servlet-class>wynk.servelet.FollowArtist</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>WynkServelet</servlet-name>

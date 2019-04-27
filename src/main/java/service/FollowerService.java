@@ -20,6 +20,7 @@ import java.util.Map;
 public class FollowerService {
 
     Map<String, List<String>> userVsFollower = new HashMap<>();
+    Map<String, Long> artistVsCount = new HashMap<>();
     @Autowired
     private SongService songService;
     private Map<String, List<Song>> playlistCache = new HashMap<>();
@@ -33,6 +34,8 @@ public class FollowerService {
         }
 
         userVsFollower.put(userId, artistIds);
+        Long count = artistVsCount.getOrDefault(artistId, 0L);
+        artistVsCount.put(artistId, count++);
         playlistCache.remove(userId);
     }
 
@@ -43,6 +46,11 @@ public class FollowerService {
             return;
         }
         artistIds.remove(artistId);
+        Long count = artistVsCount.getOrDefault(artistId, 0L);
+        if (count != 0) {
+            artistVsCount.put(artistId, count--);
+        }
+
         playlistCache.remove(userId);
     }
 
@@ -66,6 +74,10 @@ public class FollowerService {
 
         playlistCache.put(userId, playlist);
         return playlist;
+    }
+
+    public Long getCount(String artistId) {
+        return artistVsCount.get(artistId);
     }
 
 
