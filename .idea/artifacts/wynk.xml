@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="wynk">
+    <output-path>$PROJECT_DIR$/out/artifacts/wynk</output-path>
+    <root id="archive" name="wynk.war" />
+  </artifact>
+</component>
