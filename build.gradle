@@ -30,7 +30,6 @@ dependencies {
 war {
     classpath 'out/production/classes' // adds a file-set to the root of the archive
     webXml = file('src/web/WEB-INF/web.xml') // copies a file to WEB-INF/web.xml
-    destinationDir = file(buildDir.absolutePath + '/war')
-
+    destinationDir = file('build/explloded/wynk-1.0-SNAPSHOT.war')
 }
 

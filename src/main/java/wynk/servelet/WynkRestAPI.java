@@ -22,7 +22,7 @@ import javax.ws.rs.core.Response;
 @Component
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("panel/configuration/ui")
+@Path("/wynk")
 public class WynkRestAPI extends HttpServlet {
 
     @Autowired
